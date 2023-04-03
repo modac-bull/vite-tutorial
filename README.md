@@ -12,3 +12,10 @@ Vite 번들러 활용한 React / TS 실습 폴더.
 npm install
 npm run dev // or yarn dev
 ```
+
+
+---
+### git 작성 예시
+```
+
+```

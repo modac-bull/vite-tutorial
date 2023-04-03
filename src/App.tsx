@@ -1,16 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
-import tw, {styled, css, theme} from 'twin.macro'
+import tw, { styled, css, theme } from "twin.macro";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <div tw="bg-amber-700">
+      <div tw="flex items-center justify-center">
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -20,8 +20,18 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <p>{`count is ${count}`}</p>
+        <button
+          tw="border border-solid border-gray-600 p-[10px] bg-amber-400"
+          onClick={() => setCount((count) => count + 1)}
+        >
+          Add Count
+        </button>
+        <button
+          tw="border border-solid border-gray-600 p-[10px] bg-amber-400"
+          onClick={() => setCount(() => 0)}
+        >
+          Reset Count
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
@@ -31,7 +41,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
