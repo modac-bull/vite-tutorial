@@ -1,0 +1,17 @@
+{
+  "groups1": {
+    "id": "groups1",
+    "title": "그룹1",
+    "link": "/",
+    "menu": [
+      {
+        "id": "groups1-menu1",
+        "title": "그룹1-메뉴1"
+      },
+      {
+        "id": "groups1-menu1",
+        "title": "그룹1-메뉴2"
+      }
+    ]
+  }
+}
