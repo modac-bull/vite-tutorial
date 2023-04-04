@@ -1,20 +1,23 @@
+import React from "react";
 import { useRef, useState, useEffect } from "react";
 
 import { css, styled } from "twin.macro";
 
-import PAGE_MENU from "../../data/page.json"; // 페이지 메뉴
+// import PAGE_MENU from "../../data/page.json"; // 페이지 메뉴
+import PAGE_MENU from "@data/page.json"; // 페이지 메뉴
 import { isEmpty } from "lodash";
+import { Link } from "react-router-dom";
 
 interface Groups {
   id: string;
   title: string;
-  link: string;
   menu: Menu[];
 }
 
 interface Menu {
   id: string;
   title: string;
+  link: string;
 }
 
 export default function TempNavigation() {
@@ -48,7 +51,11 @@ export default function TempNavigation() {
                     console.log(submenu);
                     return (
                       <div key={idx}>
-                        <div tw="pl-[25px] bg-violet-300">{submenu.title}</div>
+                        <div tw="pl-[25px] bg-violet-300">
+                          <Link to={submenu.link && submenu.link}>
+                            {submenu.title}
+                          </Link>
+                        </div>
                       </div>
                     );
                   })}

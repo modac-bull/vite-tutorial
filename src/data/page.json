@@ -2,15 +2,32 @@
   "groups1": {
     "id": "groups1",
     "title": "그룹1",
-    "link": "/",
     "menu": [
       {
         "id": "groups1-menu1",
-        "title": "그룹1-메뉴1"
+        "title": "그룹1-메뉴1",
+        "link": "/"
       },
       {
         "id": "groups1-menu1",
-        "title": "그룹1-메뉴2"
+        "title": "그룹1-메뉴2",
+        "link": "/"
+      }
+    ]
+  },
+  "react-sample": {
+    "id": "react-usecases",
+    "title": "리액트 샘플코드",
+    "menu": [
+      {
+        "id": "usecase1",
+        "title": "샘플코드",
+        "link": "/react-usecase/sample1"
+      },
+      {
+        "id": "groups1-menu1",
+        "title": "샘플코드2",
+        "link": "/"
       }
     ]
   }
