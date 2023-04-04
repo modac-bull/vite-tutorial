@@ -18,6 +18,7 @@
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "paths": {
+      "@/*": ["*"],
       "@components/*": ["components/*"],
       "@apis/*": ["apis/*"],
       "@hooks/*": ["hooks/*"],
@@ -25,7 +26,8 @@
       "@styles/*": ["styles/*"],
       "@assets/": ["assets/*"],
       "@store/*": ["store/*"],
-      "@data/*": ["data/*"]
+      "@data/*": ["data/*"],
+      "@pages/*": ["pages/*"]
     }
   },
   "include": ["src", "types"],
