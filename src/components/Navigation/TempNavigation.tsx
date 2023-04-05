@@ -27,20 +27,17 @@ export default function TempNavigation() {
 
   function menuClick() {
     openStatus ? setOpenStatus(false) : setOpenStatus(true);
-    console.log(openStatus);
   }
 
   useEffect(() => {
     setMenuList(Object.values(PAGE_MENU));
   }, [PAGE_MENU]);
 
-  console.log("메뉴리스트", menuList);
   return (
     <Container>
       <MenuBtn onClick={menuClick}>임시 메뉴</MenuBtn>
       {!isEmpty(menuList)
         ? menuList.map((menu, idx) => {
-            console.log("menu", menu);
             return (
               <Menus key={idx}>
                 <div>
@@ -48,7 +45,6 @@ export default function TempNavigation() {
                 </div>
                 {menu.menu &&
                   menu.menu.map((submenu, idx) => {
-                    console.log(submenu);
                     return (
                       <div key={idx}>
                         <div tw="pl-[25px] bg-violet-300">
