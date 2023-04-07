@@ -24,24 +24,28 @@ async function getFilmData(id: number) {
 export default function SampleUseCasesPage2() {
   const [data, setData] = useState(null);
   const [userId, setUserId] = useState(1);
+  const [inputId, setInputId] = useState("");
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    console.log("호출");
     getFilmData(userId).then((data) => setUser(data));
   }, [userId]);
-
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (typeof e.target.value !== "number") return;
-    setUserId(e.target.value);
+    // if (typeof e.target.value === "string") return;
+    setInputId(e.target.value);
   };
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("호출");
+    // if (typeof inputId === "string") return;
+    setUserId(inputId);
   };
+  console.log(inputId);
   return (
     <>
       <div tw="flex w-[550px] mx-auto border border-amber-200 gap-[20px] items-center justify-center">
-        <p>숫자 입력 : </p>
+        <p>숫자 입력22 : </p>
         <form onSubmit={submitHandler}>
           <input
             type="number"
