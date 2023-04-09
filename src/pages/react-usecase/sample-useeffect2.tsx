@@ -10,11 +10,15 @@ useEffect : 부수 효과 처리하기
 
 */
 
-async function getFilmData(id: number) {
+interface PersonData {
+  name: string;
+  height: string;
+}
+
+async function getFilmData(id: number | null) {
   const res = fetch(`https://swapi.dev/api/people/${id}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       return data;
     })
     .catch((error) => error);
@@ -22,30 +26,27 @@ async function getFilmData(id: number) {
 }
 
 export default function SampleUseCasesPage2() {
-  const [data, setData] = useState(null);
-  const [userId, setUserId] = useState(1);
-  const [inputId, setInputId] = useState("");
+  const [data, setData] = useState<PersonData | null>(null);
+  const [userId, setUserId] = useState<number | null>(1);
+  const [inputId, setInputId] = useState<number | null>(null);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    console.log("호출");
-    getFilmData(userId).then((data) => setUser(data));
+    getFilmData(userId).then((data) => setData(data));
   }, [userId]);
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // if (typeof e.target.value === "string") return;
-    setInputId(e.target.value);
+    setInputId(Number(e.target.value));
   };
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // if (typeof inputId === "string") return;
+    if (typeof inputId === "string") return;
     setUserId(inputId);
   };
-  console.log(inputId);
   return (
     <>
       <div tw="flex w-[550px] mx-auto border border-amber-200 gap-[20px] items-center justify-center">
-        <p>숫자 입력22 : </p>
+        <p>숫자를 입력해주세요 : </p>
         <form onSubmit={submitHandler}>
           <input
             type="number"
@@ -54,9 +55,17 @@ export default function SampleUseCasesPage2() {
             name="user-id"
             onChange={handleChange}
           ></input>
-          <button type="submit">123</button>
+          <button type="submit" tw="bg-violet-800 text-white">
+            전송
+          </button>
         </form>
       </div>
+      {data && (
+        <div>
+          <h1>{data.name}</h1>
+          <h1>{data.height}</h1>
+        </div>
+      )}
     </>
   );
 }
