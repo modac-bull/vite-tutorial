@@ -2,11 +2,13 @@ import React, { useState } from "react";
 
 import AddTask from "@components/react-sample/sample-reducer/AddTask";
 import TaskList from "@components/react-sample/sample-reducer/TaskList";
+import { Task } from "@/components/react-sample/sample-reducer/sample";
+
 
 export default function SampleUseReducerTwo() {
   const [tasks, setTasks] = useState(initialTasks);
 
-  function handleAddTask(text) {
+  function handleAddTask(text: string) {
     setTasks([
       ...tasks,
       {
@@ -17,7 +19,7 @@ export default function SampleUseReducerTwo() {
     ]);
   }
 
-  function handleChangeTask(task) {
+  function handleChangeTask(task: Task) {
     setTasks(
       tasks.map((t) => {
         if (t.id === task.id) {
@@ -29,7 +31,7 @@ export default function SampleUseReducerTwo() {
     );
   }
 
-  function handleDeleteTask(taskId) {
+  function handleDeleteTask(taskId: number) {
     setTasks(tasks.filter((t) => t.id !== taskId));
   }
 
