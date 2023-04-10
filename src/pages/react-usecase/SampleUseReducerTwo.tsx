@@ -46,16 +46,21 @@ import { TaskType } from "@/components/react-sample/sample-reducer/sample";
 //     </>
 //   );
 // }
+
+export enum TaskActionType {
+  ADD_TASK = ''
+}
 interface AddedAction {
   type: "added";
   id: number;
   text: string;
+  done: boolean;
 }
 interface ChangedAction {
   type: "changed";
   id: number;
   text: string;
-  task: TaskType[];
+  task: { id: number };
 }
 interface DeletedAction {
   type: "deleted";
@@ -107,7 +112,7 @@ export default function SampleUseReducerTwo() {
   // const [tasks, setTasks] = useState(initialTasks);
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 
-  function handleAddTask(text: string) {
+  function handleAddTask() {
     /* 
   dispatch({ // action 이라고 함})
   

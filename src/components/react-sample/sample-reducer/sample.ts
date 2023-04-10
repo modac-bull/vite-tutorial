@@ -3,4 +3,3 @@ export interface TaskType {
   text: string;
   done: boolean;
 }
-
