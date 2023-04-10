@@ -1,6 +1,20 @@
 import React, { useState } from "react";
 
-export default function TaskList({ tasks, onChangeTask, onDeleteTask }) {
+interface TaskType {
+  text: string;
+  done: boolean;
+  id: number;
+}
+
+export default function TaskList({
+  tasks,
+  onChangeTask,
+  onDeleteTask,
+}: {
+  tasks: TaskType[];
+  onChangeTask: () => void;
+  onDeleteTask: () => void;
+}) {
   return (
     <ul>
       {tasks.map((task) => (
@@ -12,7 +26,15 @@ export default function TaskList({ tasks, onChangeTask, onDeleteTask }) {
   );
 }
 
-function Task({ task, onChange, onDelete }) {
+function Task({
+  task,
+  onChange,
+  onDelete,
+}: {
+  task: TaskType;
+  onChange: ({}) => void;
+  onDelete: ({}) => void;
+}) {
   const [isEditing, setIsEditing] = useState(false);
   let taskContent;
   if (isEditing) {

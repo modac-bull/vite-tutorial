@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import AddTask from "@components/react-sample/sample-reducer/AddTask";
 import TaskList from "@components/react-sample/sample-reducer/TaskList";
-import { Task } from "@/components/react-sample/sample-reducer/sample";
+import { TaskType } from "@/components/react-sample/sample-reducer/sample";
 
 
 export default function SampleUseReducerTwo() {
@@ -19,7 +19,7 @@ export default function SampleUseReducerTwo() {
     ]);
   }
 
-  function handleChangeTask(task: Task) {
+  function handleChangeTask(task: TaskType) {
     setTasks(
       tasks.map((t) => {
         if (t.id === task.id) {
