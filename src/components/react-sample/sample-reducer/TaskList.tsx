@@ -12,8 +12,8 @@ export default function TaskList({
   onDeleteTask,
 }: {
   tasks: TaskType[];
-  onChangeTask: () => void;
-  onDeleteTask: () => void;
+  onChangeTask: (task: TaskType) => void;
+  onDeleteTask: (taskId: number) => void;
 }) {
   return (
     <ul>
@@ -32,8 +32,8 @@ function Task({
   onDelete,
 }: {
   task: TaskType;
-  onChange: ({}) => void;
-  onDelete: ({}) => void;
+  onChange: (task: TaskType) => void;
+  onDelete: (taskId: number) => void;
 }) {
   const [isEditing, setIsEditing] = useState(false);
   let taskContent;

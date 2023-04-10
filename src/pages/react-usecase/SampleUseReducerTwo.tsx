@@ -4,7 +4,6 @@ import AddTask from "@components/react-sample/sample-reducer/AddTask";
 import TaskList from "@components/react-sample/sample-reducer/TaskList";
 import { TaskType } from "@/components/react-sample/sample-reducer/sample";
 
-
 export default function SampleUseReducerTwo() {
   const [tasks, setTasks] = useState(initialTasks);
 
