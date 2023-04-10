@@ -8,6 +8,7 @@ import {
   SampleUseCasesPage,
   SampleUseCasesPage2,
   SampleUseReducer,
+  SampleUseReducerTwo,
 } from "@pages/react-usecase";
 import TempNavigation from "@/components/Navigation/TempNavigation";
 
@@ -27,6 +28,10 @@ function App() {
             element={<SampleUseCasesPage2 />}
           />
           <Route path="/react-usecase/sample3" element={<SampleUseReducer />} />
+          <Route
+            path="/react-usecase/sample4"
+            element={<SampleUseReducerTwo />}
+          />
         </Routes>
       </BrowserRouter>
     </>
