@@ -20,14 +20,19 @@
     "title": "리액트 샘플코드",
     "menu": [
       {
-        "id": "usecase1",
+        "id": "usecase1-menu1",
         "title": "샘플코드",
         "link": "/react-usecase/sample1"
       },
       {
-        "id": "groups1-menu1",
+        "id": "usecase1-menu2",
         "title": "샘플코드2",
         "link": "/react-usecase/sample2"
+      },
+      {
+        "id": "usecase1-menu3",
+        "title": "useReducer 샘플 코드",
+        "link": "/react-usecase/sample3"
       }
     ]
   }

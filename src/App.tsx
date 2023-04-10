@@ -4,7 +4,11 @@ import "./App.css";
 import tw, { styled, css, theme } from "twin.macro";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "@pages/Home";
-import { SampleUseCasesPage, SampleUseCasesPage2 } from "@pages/react-usecase";
+import {
+  SampleUseCasesPage,
+  SampleUseCasesPage2,
+  SampleUseReducer,
+} from "@pages/react-usecase";
 import TempNavigation from "@/components/Navigation/TempNavigation";
 
 function App() {
@@ -22,6 +26,7 @@ function App() {
             path="/react-usecase/sample2"
             element={<SampleUseCasesPage2 />}
           />
+          <Route path="/react-usecase/sample3" element={<SampleUseReducer />} />
         </Routes>
       </BrowserRouter>
     </>
