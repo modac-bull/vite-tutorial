@@ -38,6 +38,11 @@
         "id": "usecase1-menu4",
         "title": "useReducer 샘플 코드2",
         "link": "/react-usecase/sample4"
+      },
+      {
+        "id": "usecase1-menu5",
+        "title": "useReducer 샘플 코드3",
+        "link": "/react-usecase/sample5"
       }
     ]
   }
