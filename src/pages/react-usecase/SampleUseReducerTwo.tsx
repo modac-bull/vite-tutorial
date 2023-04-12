@@ -48,62 +48,58 @@ import { TaskType } from "@/components/react-sample/sample-reducer/sample";
 // }
 
 export enum TaskActionType {
-  ADD_TASK = ''
+  ADD_TASK = "ADD_TASK",
+  CHANGE_TASK = "CHANGE_TASK",
+  DELETE_TASK = "DELETE_TASK",
 }
 interface AddedAction {
-  type: "added";
-  id: number;
-  text: string;
-  done: boolean;
+  type: TaskActionType.ADD_TASK;
+  payload: {
+    id: number;
+    text: string;
+  };
 }
 interface ChangedAction {
-  type: "changed";
-  id: number;
-  text: string;
-  task: { id: number };
+  type: TaskActionType.CHANGE_TASK;
+  payload: {
+    task: TaskType;
+  };
 }
 interface DeletedAction {
-  type: "deleted";
-  id: number;
-  text: string;
+  type: TaskActionType.DELETE_TASK;
+  payload: {
+    id: number;
+  };
 }
 
-interface DefaultAction {
-  type: null | undefined;
-}
-
-export type TasksAction =
-  | AddedAction
-  | ChangedAction
-  | DeletedAction
-  | DefaultAction;
+export type TasksAction = AddedAction | ChangedAction | DeletedAction;
 
 function tasksReducer(tasks: TaskType[], action: TasksAction) {
   switch (action.type) {
-    case "added": {
+    case TaskActionType.ADD_TASK: {
       return [
         ...tasks,
         {
-          id: action.id,
-          text: action.text,
+          id: action.payload.id,
+          text: action.payload.text,
           done: false,
         },
       ];
     }
-    case "changed": {
+    case TaskActionType.CHANGE_TASK: {
       return tasks.map((t) => {
-        if (t.id === action.task.id) {
-          return action.task;
+        if (t.id === action.payload.task.id) {
+          return action.payload.task;
         } else {
           return t;
         }
       });
     }
-    case "deleted": {
-      return tasks.filter((t) => t.id !== action.id);
+    case TaskActionType.DELETE_TASK: {
+      return tasks.filter((t) => t.id !== action.payload.id);
     }
     default: {
-      throw Error("Unknown action: " + action.type);
+      throw Error("Unknown action");
     }
   }
 }
@@ -112,29 +108,35 @@ export default function SampleUseReducerTwo() {
   // const [tasks, setTasks] = useState(initialTasks);
   const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 
-  function handleAddTask() {
+  function handleAddTask(text: string) {
     /* 
   dispatch({ // action 이라고 함})
   
   */
     dispatch({
-      type: "added",
-      id: nextId++,
-      text: text,
+      type: TaskActionType.ADD_TASK,
+      payload: {
+        id: nextId++,
+        text: text,
+      },
     });
   }
 
   function handleChangeTask(task: TaskType) {
     dispatch({
-      type: "changed",
-      task: task,
+      type: TaskActionType.CHANGE_TASK,
+      payload: {
+        task: task,
+      },
     });
   }
 
-  function handleDeleteTask(taskId) {
+  function handleDeleteTask(taskId: number) {
     dispatch({
-      type: "deleted",
-      id: taskId,
+      type: TaskActionType.DELETE_TASK,
+      payload: {
+        id: taskId,
+      },
     });
   }
 
@@ -152,7 +154,7 @@ export default function SampleUseReducerTwo() {
 }
 
 let nextId = 3;
-const initialTasks = [
+const initialTasks: TaskType[] = [
   { id: 0, text: "Visit Kafka Museum", done: true },
   { id: 1, text: "Watch a puppet show", done: false },
   { id: 2, text: "Lennon Wall pic", done: false },
