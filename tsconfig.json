@@ -18,16 +18,17 @@
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "paths": {
-      "@/*": ["*"],
-      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"],
       "@apis/*": ["apis/*"],
+      "@store/*": ["store/*"],
       "@hooks/*": ["hooks/*"],
+      "@data/*": ["data/*"],
       "@libraries/*": ["libraries/*"],
+      "@utils/*": ["utils/*"],
+      "@components/*": ["components/*"],
       "@styles/*": ["styles/*"],
       "@assets/": ["assets/*"],
-      "@store/*": ["store/*"],
-      "@data/*": ["data/*"],
-      "@pages/*": ["pages/*"]
+      "@/*": ["*"]
     }
   },
   "include": ["src", "types"],

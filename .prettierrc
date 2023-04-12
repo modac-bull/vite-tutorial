@@ -1,0 +1,15 @@
+{
+  "importOrder": [
+    "^@apis/(.*)$",
+    "^@store/(.*)$",
+    "^@hooks/(.*)$",
+    "^@data/(.*)$",
+    "^@utils/(.*)$",
+    "^@components/(.*)$",
+    "^@styles/(.*)$",
+    "^@assets/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
