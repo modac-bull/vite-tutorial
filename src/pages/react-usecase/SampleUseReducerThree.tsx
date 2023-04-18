@@ -61,7 +61,16 @@ export default function SampleUseReducerThree() {
           });
         }}
       />
-      <input type="number" />
+      <input
+        type="number"
+        value={state.age}
+        onChange={(e) =>
+          dispatch({
+            type: ReducerType.SET_AGE,
+            payload: { age: parseInt(e.currentTarget.value) },
+          })
+        }
+      />
     </div>
   );
 }
