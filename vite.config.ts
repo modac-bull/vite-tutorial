@@ -1,6 +1,6 @@
 // vite.config.ts
-import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -42,6 +42,7 @@ export default defineConfig({
       { find: "@data", replacement: "/src/data" },
       { find: "@pages", replacement: "/src/pages" },
       { find: "@assets", replacement: "/src/assets" },
+      { find: "@store", replacement: "/src/store" },
     ],
   },
 });
