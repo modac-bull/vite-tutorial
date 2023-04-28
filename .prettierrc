@@ -1,9 +1,12 @@
 {
   "importOrder": [
+    "^@pages/(.*)$",
     "^@apis/(.*)$",
+    "^@reducers/(.*)$",
     "^@store/(.*)$",
     "^@hooks/(.*)$",
     "^@data/(.*)$",
+    "^@libraries/(.*)$",
     "^@utils/(.*)$",
     "^@components/(.*)$",
     "^@styles/(.*)$",

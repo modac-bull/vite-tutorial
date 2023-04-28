@@ -38,11 +38,17 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: "@", replacement: "./src" },
-      { find: "@components", replacement: "/src/components" },
-      { find: "@data", replacement: "/src/data" },
       { find: "@pages", replacement: "/src/pages" },
-      { find: "@assets", replacement: "/src/assets" },
+      { find: "@apis", replacement: "/src/apis" },
+      { find: "@reducers", replacement: "/src/reducers" },
       { find: "@store", replacement: "/src/store" },
+      { find: "@hooks", replacement: "/src/hooks" },
+      { find: "@data", replacement: "/src/data" },
+      { find: "@libraries", replacement: "/src/libraries" },
+      { find: "@utils", replacement: "/src/utils" },
+      { find: "@components", replacement: "/src/components" },
+      { find: "@styles", replacement: "/src/styles" },
+      { find: "@assets", replacement: "/src/assets" },
     ],
   },
 });
